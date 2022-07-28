@@ -24,6 +24,7 @@
         <%= form_for post, url: post_path(post), method: :delete do |f| %>
           <%= f.submit 'Delete', data: { confirm: "Are you sure?" } %>
         <% end %>
+        <%= link_to :Comments, post_comments_path(post) %>
       </td>
     </tr>
   <% end %>
