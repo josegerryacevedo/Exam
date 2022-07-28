@@ -1,10 +1,10 @@
 class Post < ApplicationRecord
   validates_presence_of :title
   validates_presence_of :content
-  validates_presence_of :address
 
   belongs_to :user
   belongs_to :category
+  belongs_to :region
   has_many :comments
 
   before_create :generate_unique_number
