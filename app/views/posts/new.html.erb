@@ -16,6 +16,12 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :category_id, class:'control-label' %>
+    <%= f.collection_select :category_id, Category.order(:name),:id,:name, {:prompt => 'Type of Disaster'}, include_blank: true %>
+  </div>
+
+  <div class="form-group">
     <%= f.submit class: 'btn btn-danger' %>
   </div>
+
 <% end %>

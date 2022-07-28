@@ -1,0 +1,15 @@
+<h1>Create</h1>
+
+<% if @category.errors.any? %>
+  <% @category.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+<% end %>
+
+<%= form_for @category, url: admin_posts_path(@category), method: :post do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.submit %>
+<% end %>
+<%= link_to 'back', admin_posts_path %>
+
