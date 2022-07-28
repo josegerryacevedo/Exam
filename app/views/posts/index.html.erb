@@ -1,4 +1,4 @@
-<h1><%= t('disaster_list') %></h1>
+<h1> Disaster List </h1>
 
 <table class="table text-center">
   <thead class="thead-dark">
@@ -8,6 +8,7 @@
     <th scope="col">Title</th>
     <th scope="col">Content</th>
     <th scope="col">Address</th>
+    <th scope="col">Actions</th>
   </tr>
   </thead>
   <tbody>
@@ -17,6 +18,13 @@
       <td><%= post.title%></td>
       <td><%= post.content%></td>
       <td><%= post.address%></td>
+      <td>
+        <%= link_to 'Edit', edit_post_path(post) %>
+        <%= link_to "Show", post_path(post) %>
+        <%= form_for post, url: post_path(post), method: :delete do |f| %>
+          <%= f.submit 'Delete', data: { confirm: "Are you sure?" } %>
+        <% end %>
+      </td>
     </tr>
   <% end %>
   </tbody>
@@ -24,7 +32,8 @@
 
 
 <%if current_user%>
+  <%= link_to 'Create', new_post_path %>
   <h3><%= link_to "LOGOUT", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure?" } %></h3>
 <% else %>
-  <h3><%= link_to 'Sign in', new_user_session_path %></h3>
+  <h3><%= link_to 'Create', new_user_session_path %></h3>
 <% end %>
