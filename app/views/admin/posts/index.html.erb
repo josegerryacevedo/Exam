@@ -1,1 +1,26 @@
-<h1>Admin Page</h1>
+<h1>Type of Disaster</h1>
+
+<table class="table text-center">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">Name</th>
+    <th scope="col">Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @categories.each do |category| %>
+    <tr>
+      <td><%= category.name%></td>
+      <td>
+        <%= link_to 'Edit', edit_admin_post_path(category) %>
+        <%= button_to "Delete", admin_post_path(category), method: :delete, data: { confirm: "Are you sure?" } %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Create New', new_admin_post_path %>
+
+
+
