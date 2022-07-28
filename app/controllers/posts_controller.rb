@@ -62,7 +62,7 @@ class PostsController < ApplicationController
 
   #Connected it to "Create"
   def post_params
-    params.require(:post).permit(:title, :content, :category_id, :region_id)
+    params.require(:post).permit(:title, :content, :category_id, :region_id, :city_id)
   end
 
   #Connected it to "Show id"
