@@ -43,6 +43,8 @@
 
 <%if current_user%>
   <%= link_to 'Create', new_post_path %>
+  <br>
+  <%= link_to 'My Post', 'posts/user_posts' %>
   <h3><%= link_to "LOGOUT", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure?" } %></h3>
 <% else %>
   <h3><%= link_to 'Create', new_user_session_path %></h3>

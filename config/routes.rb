@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   root :to => "posts#index"
 
+  get 'posts/user_posts', to: 'posts#user_post'
+
   resources :posts do
     resources :comments
   end

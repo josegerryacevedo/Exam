@@ -50,6 +50,10 @@ class PostsController < ApplicationController
     end
   end
 
+  def user_post
+    @posts = current_user.posts
+  end
+
   private
 
   def set_own_post
@@ -59,6 +63,7 @@ class PostsController < ApplicationController
       redirect_to posts_path
     end
   end
+
 
   #Connected it to "Create"
   def post_params
