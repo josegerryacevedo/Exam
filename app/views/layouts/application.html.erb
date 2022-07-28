@@ -11,6 +11,7 @@
   </head>
 
   <body>
+    <h1><%= link_to 'Admin', admin_posts_path if current_user&.admin? %></h1>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
