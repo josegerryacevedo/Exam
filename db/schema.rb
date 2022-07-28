@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_28_094512) do
+ActiveRecord::Schema.define(version: 2022_07_28_095319) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -44,7 +44,9 @@ ActiveRecord::Schema.define(version: 2022_07_28_094512) do
     t.integer "category_id"
     t.string "short_url"
     t.integer "region_id"
+    t.integer "city_id"
     t.index ["category_id"], name: "index_posts_on_category_id"
+    t.index ["city_id"], name: "index_posts_on_city_id"
     t.index ["region_id"], name: "index_posts_on_region_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
