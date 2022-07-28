@@ -1,0 +1,6 @@
+<h1>Comment for <%= @post.title %></h1>
+<%= form_for @comment, url: post_comments_path(@post), method: :post do |f| %>
+  <%= f.label :content %>
+  <%= f.text_area :content %>
+  <%= f.submit %>
+<% end %>

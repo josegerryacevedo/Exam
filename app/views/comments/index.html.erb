@@ -1,0 +1,22 @@
+<h1>COMMENTS</h1>
+
+<h1><%= @post.title %></h1>
+
+<table>
+  <th>
+    <td>content</td>
+  </th>
+    <% @comments.each do |comment| %>
+      <tr>
+        <td><%= comment.content %></td>
+        <td>
+        <%= link_to 'edit', edit_post_comment_path(@post, comment) %>
+        <%= button_to "delete", post_comment_path(@post, comment), method: :delete, data: { confirm: "Are you sure?" } %>
+        </td>
+      </tr>
+    <% end %>
+</table>
+
+<%= link_to 'Create comment', new_post_comment_path(@post) %>
+<br>
+<%= link_to 'Home', posts_path %>
