@@ -5,6 +5,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all.includes(:user)
+    @domain = request.base_url
   end
 
   def new
@@ -36,6 +37,16 @@ class PostsController < ApplicationController
   def destroy
     if @post.destroy
       redirect_to posts_path, notice: 'Post successfully deleted'
+    end
+  end
+
+  def redirect
+    @short_num = params[:short_url]
+    @post = Post.find_by(short_url: @short_num)
+    if @post.nil?
+      not_found
+    else
+      redirect_to post_path (@post)
     end
   end
 

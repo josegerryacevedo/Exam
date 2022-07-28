@@ -20,6 +20,7 @@
       <td><%= post.content%></td>
       <td><%= post.address%></td>
       <td><%= post.category&.name%></td>
+      <td><%= link_to "#{@domain}/#{post.short_url}", "#{@domain}/#{post.short_url}", target: :_self %></td>
       <td>
         <%= link_to 'Edit', edit_post_path(post) %>
         <%= link_to "Show", post_path(post) %>
