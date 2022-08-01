@@ -10,7 +10,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="container">
     <h1><%= link_to 'Admin', admin_posts_path if current_user&.admin? %></h1>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
